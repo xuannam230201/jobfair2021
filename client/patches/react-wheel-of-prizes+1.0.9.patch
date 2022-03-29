@@ -1,0 +1,24 @@
+diff --git a/node_modules/react-wheel-of-prizes/dist/index.js b/node_modules/react-wheel-of-prizes/dist/index.js
+index 33c7ba4..a40e20b 100644
+--- a/node_modules/react-wheel-of-prizes/dist/index.js
++++ b/node_modules/react-wheel-of-prizes/dist/index.js
+@@ -61,7 +61,7 @@ var WheelComponent = function WheelComponent(_ref) {
+ 
+     if (navigator.userAgent.indexOf('MSIE') !== -1) {
+       canvas = document.createElement('canvas');
+-      canvas.setAttribute('width', 1000);
++      canvas.setAttribute('width', 500);
+       canvas.setAttribute('height', 600);
+       canvas.setAttribute('id', 'canvas');
+       document.getElementById('wheel').appendChild(canvas);
+@@ -226,8 +226,8 @@ var WheelComponent = function WheelComponent(_ref) {
+     id: "wheel"
+   }, /*#__PURE__*/React__default.createElement("canvas", {
+     id: "canvas",
+-    width: "1000",
+-    height: "800",
++    width: "500",
++    height: "600",
+     style: {
+       pointerEvents: isFinished && isOnlyOnce ? 'none' : 'auto'
+     }
