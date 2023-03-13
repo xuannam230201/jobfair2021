@@ -14,6 +14,12 @@ const Attendance = () => {
 
   const {inCheck, outCheck} = useSelector(state => state.alert);
 
+  const password = localStorage.getItem('password');
+
+  if (password !== 'nh2') {
+    return <></>
+  }
+
   return (
     <>
       {

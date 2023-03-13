@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
 var mongoose = require('mongoose');
 const SocketServer = require('./socketServer');
 require('dotenv').config();
@@ -18,6 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
