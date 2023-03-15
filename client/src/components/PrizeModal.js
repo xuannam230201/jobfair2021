@@ -68,7 +68,7 @@ const PrizeModal = (props) => {
   useEffect(() => {
     setTimeout(() => {
       props.setOpen(false)
-    }, 5000)
+    }, 4040)
   }, [props.student])
 
   return (
