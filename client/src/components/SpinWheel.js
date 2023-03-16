@@ -5,10 +5,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import Spin from './Spin'
 import { getDataAPI, postDataAPI } from '../utils/fetchData'
 import { STUDENT_TYPES, deleteWheelStudent } from '../redux/action/student'
-import { BLUE_ISH_BG, DARK_BLUE, PINK_BG } from '../utils'
+import { BLUE_ISH_BG, WHITE, BLUE_TEXT, DARK_BLUE, PINK_BG } from '../utils'
 
 const prize = [
-  { type: 'S', color: '#95BDFF' },
+  { type: 'S', color: BLUE_TEXT },
   { type: '1', color: '#FFB404' },
   { type: '2', color: PINK_BG },
   { type: '3', color: '#824A02' },
@@ -25,6 +25,7 @@ const SpinWheel = (props) => {
   const [student, setStudent] = useState('')
 
   const { socket, wheelStudent } = useSelector((state) => state)
+  // const wheelStudent = ['nghi', 'son', 'tan']
 
   const dispatch = useDispatch()
 
@@ -124,7 +125,7 @@ const SpinWheel = (props) => {
             item
             direction="row"
             sx={{
-              bgcolor: '#ffffff',
+              bgcolor: WHITE,
             }}
             alignItems="center"
           >
@@ -132,7 +133,7 @@ const SpinWheel = (props) => {
               container
               item
               sx={{
-                bgcolor: '#ffffff',
+                bgcolor: WHITE,
               }}
               padding={1}
               md={8}
@@ -152,7 +153,7 @@ const SpinWheel = (props) => {
               container
               item
               sx={{
-                bgcolor: '#ffffff',
+                bgcolor: WHITE,
               }}
               padding={1}
               md={4}
@@ -160,7 +161,7 @@ const SpinWheel = (props) => {
             >
               <Button
                 content="Bắt đầu"
-                bgColor={PINK_BG}
+                bgColor={DARK_BLUE}
                 color="#FFFFFF"
                 width="400px"
                 onClick={start}
@@ -172,7 +173,7 @@ const SpinWheel = (props) => {
             item
             direction="column"
             sx={{
-              bgcolor: '#ffffff',
+              bgcolor: WHITE,
               height: '130px',
             }}
           >
@@ -200,7 +201,7 @@ const SpinWheel = (props) => {
                       // paddingLeft: '15px',
                       textAlign: 'center',
                       color: `${
-                        key === joinList.length - 1 ? '#95BDFF' : '#000000'
+                        key === joinList.length - 1 ? BLUE_TEXT : '#000000'
                       }`,
                     }}
                   >
@@ -232,7 +233,7 @@ const SpinWheel = (props) => {
                       },
                       textAlign: 'center',
                       color: `${
-                        key === joinList.length - 5 ? '#95BDFF' : '#000000'
+                        key === joinList.length - 5 ? BLUE_TEXT : '#000000'
                       }`,
                     }}
                   >
@@ -264,7 +265,7 @@ const SpinWheel = (props) => {
                       },
                       textAlign: 'center',
                       color: `${
-                        key === joinList.length - 9 ? '#95BDFF' : '#000000'
+                        key === joinList.length - 9 ? BLUE_TEXT : '#000000'
                       }`,
                     }}
                   >
@@ -279,7 +280,7 @@ const SpinWheel = (props) => {
           <Grid
             item
             sx={{
-              bgcolor: '#ffffff',
+              bgcolor: WHITE,
             }}
             padding={1}
           >
@@ -299,7 +300,7 @@ const SpinWheel = (props) => {
               container
               item
               sx={{
-                bgcolor: '#ffffff',
+                bgcolor: WHITE,
                 height: {
                   md: '60px',
                 },
@@ -353,7 +354,7 @@ const SpinWheel = (props) => {
         alignItems="flex-start"
         md={6.9}
         sx={{
-          bgcolor: '#ffffff',
+          bgcolor: WHITE,
         }}
         padding={1}
       >

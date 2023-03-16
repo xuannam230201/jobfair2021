@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Dialog, Grid, Typography, IconButton, Stack } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { Fireworks, useFireworks } from 'fireworks-js/dist/react'
-import { DARK_BLUE } from '../utils'
+import { BLUE_TEXT, DARK_BLUE, WHITE } from '../utils'
 
 const style = {
   top: 0,
@@ -83,7 +83,7 @@ const PrizeModal = (props) => {
               columnSpacing={0}
               direction="column"
               sx={{
-                bgcolor: '#ffffff',
+                bgcolor: WHITE,
                 width: {
                   md: '1000px',
                 },
@@ -98,7 +98,7 @@ const PrizeModal = (props) => {
                 alignItems="center"
                 sx={{
                   height: '60px',
-                  bgcolor: '#95BDFF',
+                  bgcolor: BLUE_TEXT,
                 }}
               >
                 <Typography
@@ -107,7 +107,7 @@ const PrizeModal = (props) => {
                       md: '30px',
                     },
                     fontWeight: 'bold',
-                    color: '#ffffff',
+                    color: WHITE,
                   }}
                 >
                   CHÚC MỪNG
@@ -127,7 +127,7 @@ const PrizeModal = (props) => {
                 >
                   {props.student
                     ? props.student.surname + ' ' + props.student.firstname
-                    : ''}
+                    : 'Error 404 - Not found'}
                 </Typography>
               </Grid>
               <Grid
@@ -144,6 +144,7 @@ const PrizeModal = (props) => {
                       md: '70px',
                     },
                     fontWeight: 'bold',
+                    color: DARK_BLUE,
                   }}
                 >
                   {props.student ? props.student.id : ''}

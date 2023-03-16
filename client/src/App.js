@@ -52,43 +52,42 @@ function App() {
   }, [dispatch])
 
   return (
-    <>
-      <Router>
-        {socket && <SocketClient />}
-        <Grid
-          container
-          direction="column"
-          rowSpacing={1}
-          columnSpacing={0}
-          alignItems="center"
-          justifyContent="center"
-          sx={{
-            bgcolor: BLUE_ISH_BG,
-            width: '100%',
-          }}
-        >
-          <Grid sx={{ width: '100%' }}>
-            <Header />
-          </Grid>
-          <Grid item sx={{ width: '100%' }}>
-            <NavigateBar
-              navigator={navigator}
-              tabs={['Thống kê', 'Điểm danh', 'Quay số']}
-            />
-          </Grid>
-          <Grid item sx={{ width: '100%' }}>
-            <Routes>
-              <Route exact path="/" element={<HomePage />} />
-              <Route exact path="/attendance" element={<Attendance />} />
-              <Route exact path="/wheel" element={<Wheel />} />
-            </Routes>
-          </Grid>
-          <Grid item sx={{ width: '100%' }}>
-            <Footer />
-          </Grid>
+    <Router>
+      {socket && <SocketClient />}
+      <Grid
+        container
+        margin={0}
+        direction="column"
+        rowSpacing={1}
+        columnSpacing={0}
+        alignItems="center"
+        justifyContent="center"
+        sx={{
+          bgcolor: BLUE_ISH_BG,
+          width: '100%',
+        }}
+      >
+        <Grid sx={{ width: '100%' }}>
+          <Header />
         </Grid>
-      </Router>
-    </>
+        <Grid item sx={{ width: '100%' }}>
+          <NavigateBar
+            navigator={navigator}
+            tabs={['Thống kê', 'Điểm danh', 'Quay số']}
+          />
+        </Grid>
+        <Grid item sx={{ width: '100%' }}>
+          <Routes>
+            <Route exact path="/" element={<HomePage />} />
+            <Route exact path="/attendance" element={<Attendance />} />
+            <Route exact path="/wheel" element={<Wheel />} />
+          </Routes>
+        </Grid>
+        <Grid item sx={{ width: '100%' }}>
+          <Footer />
+        </Grid>
+      </Grid>
+    </Router>
   )
 }
 

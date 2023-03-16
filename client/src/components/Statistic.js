@@ -5,7 +5,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { STUDENT_TYPES } from '../redux/action/student'
 import { initLiveStudent } from '../redux/action/student'
 import { getDataAPI } from '../utils/fetchData'
-import { BLUE_ISH_BG, DARK_BLUE, isOrganizer, stringName } from '../utils'
+import {
+  BLUE_ISH_BG,
+  DARK_BLUE,
+  BLUE_TEXT,
+  isOrganizer,
+  stringName,
+  WHITE,
+} from '../utils'
 
 const Statistic = (props) => {
   const [curTime, setCurTime] = useState(new Date())
@@ -46,7 +53,7 @@ const Statistic = (props) => {
         alignItems="flex-start"
         md={5.9}
         sx={{
-          bgcolor: '#ffffff',
+          bgcolor: WHITE,
         }}
         padding={1}
       >
@@ -76,7 +83,7 @@ const Statistic = (props) => {
                           fontSize: {
                             md: '20px',
                           },
-                          color: `${key === 0 ? '#95BDFF' : '#000000'}`,
+                          color: `${key === 0 ? BLUE_TEXT : '#000000'}`,
                         }}
                       >
                         {stringName(student)}
@@ -91,7 +98,7 @@ const Statistic = (props) => {
                           },
                           color: `${
                             key === 0
-                              ? '#95BDFF'
+                              ? BLUE_TEXT
                               : isOrganizer(student)
                               ? DARK_BLUE
                               : 'black'
@@ -121,7 +128,7 @@ const Statistic = (props) => {
           <Grid
             item
             sx={{
-              bgcolor: '#ffffff',
+              bgcolor: WHITE,
             }}
             padding={1}
           >
@@ -141,7 +148,7 @@ const Statistic = (props) => {
             container
             item
             // sx={{
-            //   bgcolor: '#ffffff',
+            //   bgcolor: WHITE,
             // }}
             padding={1}
             justifyContent="center"
@@ -180,7 +187,7 @@ const Statistic = (props) => {
           <Grid
             item
             sx={{
-              bgcolor: '#ffffff',
+              bgcolor: WHITE,
             }}
             padding={1}
             paddingBottom="20px"
@@ -202,7 +209,7 @@ const Statistic = (props) => {
             item
             direction="row"
             sx={{
-              bgcolor: '#ffffff',
+              bgcolor: WHITE,
             }}
           >
             <Grid
@@ -266,7 +273,7 @@ const Statistic = (props) => {
                   fontWeight: 'bold',
                 }}
               >
-                {48}
+                {47}
               </Avatar>
               <Typography
                 alignSelf="center"

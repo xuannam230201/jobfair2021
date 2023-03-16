@@ -3,9 +3,10 @@ import { Grid, Fade, Zoom } from '@mui/material'
 import { Typography } from '@mui/material'
 import Warning from './Warning'
 import {
-  BLUE_BG,
+  WHITE,
   BLUE_ISH_BG,
   DARK_BLUE,
+  GREY,
   isOrganizer,
   stringName,
 } from '../utils'
@@ -68,7 +69,7 @@ const InfoBox = (props) => {
                   fontSize: {
                     md: '20px',
                   },
-                  color: '#8C8C8C',
+                  color: GREY,
                 }}
               >
                 Họ và tên
@@ -85,7 +86,7 @@ const InfoBox = (props) => {
                 {props.student && props.student.surname !== '' ? (
                   props.student.surname + ' ' + props.student.firstname
                 ) : (
-                  <span style={{ color: '#ffffff' }}>a</span>
+                  <span style={{ color: WHITE }}>a</span>
                 )}
               </Typography>
             </Grid>
@@ -95,7 +96,7 @@ const InfoBox = (props) => {
                   fontSize: {
                     md: '20px',
                   },
-                  color: '#8C8C8C',
+                  color: GREY,
                 }}
               >
                 Mã số sinh viên
@@ -112,7 +113,7 @@ const InfoBox = (props) => {
                 {props.student ? (
                   props.student.id
                 ) : (
-                  <span style={{ color: '#ffffff' }}>a</span>
+                  <span style={{ color: WHITE }}>a</span>
                 )}
               </Typography>
             </Grid>
@@ -122,7 +123,7 @@ const InfoBox = (props) => {
                   fontSize: {
                     md: '20px',
                   },
-                  color: '#8C8C8C',
+                  color: GREY,
                 }}
               >
                 Lớp
@@ -139,7 +140,7 @@ const InfoBox = (props) => {
                 {props.student && props.student.surname !== '' ? (
                   props.student.class
                 ) : (
-                  <span style={{ color: '#ffffff' }}>a</span>
+                  <span style={{ color: WHITE }}>a</span>
                 )}
               </Typography>
             </Grid>
@@ -149,7 +150,7 @@ const InfoBox = (props) => {
                   fontSize: {
                     md: '20px',
                   },
-                  color: '#8C8C8C',
+                  color: GREY,
                 }}
               >
                 Niên khóa
@@ -166,7 +167,7 @@ const InfoBox = (props) => {
                 {props.student && props.student.surname !== '' ? (
                   props.student.year
                 ) : (
-                  <span style={{ color: '#ffffff' }}>a</span>
+                  <span style={{ color: WHITE }}>a</span>
                 )}
               </Typography>
             </Grid>

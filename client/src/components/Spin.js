@@ -6,7 +6,7 @@ import { STUDENT_TYPES, deleteWheelStudent } from '../redux/action/student'
 import { useDispatch, useSelector } from 'react-redux'
 import PrizeModal from './PrizeModal'
 import { getDataAPI, postDataAPI } from '../utils/fetchData'
-import { DARK_BLUE, PINK_BG } from '../utils'
+import { PINK_BG } from '../utils'
 
 const defaultData = [
   { option: '' },
@@ -23,14 +23,14 @@ const defaultData = [
 
 const backgroundColors = [
   '#F7C8E0',
-  '#DFFFD8',
+  '#BFACE2',
   '#B4E4FF',
-  '#95BDFF',
+  '#98DFD6',
   '#CCD5AE',
   '#FAEDCD',
 ]
 
-const textColors = [DARK_BLUE]
+const textColors = ['BLACK']
 
 const Spin = (props) => {
   const [mustSpin, setMustSpin] = useState(false)
@@ -107,12 +107,7 @@ const Spin = (props) => {
           />
         </Grid>
         <Grid item>
-          <Button
-            onClick={handleSpinClick}
-            width="100px"
-            content="Quay"
-            bgcolor={PINK_BG}
-          />
+          <Button onClick={handleSpinClick} width="100px" content="Quay" />
         </Grid>
       </Grid>
       <PrizeModal student={student} open={open} setOpen={setOpen} />

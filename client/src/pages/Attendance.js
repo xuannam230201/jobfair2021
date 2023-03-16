@@ -33,6 +33,7 @@ const Attendance = () => {
           sx={{
             width: '100%',
           }}
+          xs={12}
         >
           <Grid item>
             <TitleBar

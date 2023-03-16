@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import { Typography } from '@mui/material'
+import { WHITE } from '../utils'
 
 const SubTitleBar = (props) => {
   return (
@@ -9,7 +10,7 @@ const SubTitleBar = (props) => {
       rowSpacing={0}
       columnSpacing={0}
       sx={{
-        bgcolor: '#ffffff',
+        bgcolor: WHITE,
         width: {
           md: '1000px',
         },

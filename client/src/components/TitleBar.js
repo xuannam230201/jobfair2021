@@ -4,6 +4,7 @@ import { Box } from '@mui/system'
 import { Typography } from '@mui/material'
 import Button from './Button'
 import { useState } from 'react'
+import { WHITE } from '../utils'
 
 const TitleBar = (props) => {
   return (
@@ -11,7 +12,7 @@ const TitleBar = (props) => {
       container
       direction="row"
       sx={{
-        bgcolor: '#ffffff',
+        bgcolor: WHITE,
         width: '1000px',
         height: {
           md: '70px',

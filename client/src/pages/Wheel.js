@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import TitleBar from '../components/TitleBar'
 import SpinWheel from '../components/SpinWheel'
 import { STUDENT_TYPES, getWheelStudent } from '../redux/action/student'
-import { PINK_BG } from '../utils'
+import { DARK_BLUE, PINK_BG } from '../utils'
 
 const Wheel = () => {
   const dispatch = useDispatch()
@@ -32,7 +32,7 @@ const Wheel = () => {
     >
       <Grid item>
         <TitleBar
-          circleColor={PINK_BG}
+          circleColor={DARK_BLUE}
           title="QUAY SỐ TRÚNG THƯỞNG"
           type="wheel"
         />
