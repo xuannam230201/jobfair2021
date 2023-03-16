@@ -125,7 +125,6 @@ const PrizeModal = (props) => {
                     textAlign: 'center',
                   }}
                 >
-                  Nguyễn Đoàn Phương Nghi
                   {props.student
                     ? props.student.surname + ' ' + props.student.firstname
                     : ''}
@@ -147,7 +146,6 @@ const PrizeModal = (props) => {
                     fontWeight: 'bold',
                   }}
                 >
-                  {3203029300}
                   {props.student ? props.student.id : ''}
                 </Typography>
               </Grid>
