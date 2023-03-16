@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-export const getDataAPI = async(url, token) => {
+export const getDataAPI = async (url, token) => {
   const res = await axios.get(`/${url}`, {
-    headers: {Authorization: token}
+    headers: { Authorization: token }
   });
   return res;
 }
 
-export const postDataAPI = async(url, post, token) => {
+export const postDataAPI = async (url, post, token) => {
   const res = await axios.post(`/${url}`, post, {
-      headers: { Authorization: token }
+    headers: { Authorization: token }
   })
   return res;
 }

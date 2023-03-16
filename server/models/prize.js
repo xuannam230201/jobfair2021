@@ -1,17 +1,20 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const Prize = mongoose.model(
   'Prize',
-  new mongoose.Schema({
-    student: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Student',
+  new mongoose.Schema(
+    {
+      student: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Student',
+      },
+      prize: Number,
     },
-    prize: Number,
-  }, {
-    timestamps: true,
-  }),
+    {
+      timestamps: true,
+    }
+  ),
   'prizes'
-);
+)
 
-module.exports = Prize;
+module.exports = Prize

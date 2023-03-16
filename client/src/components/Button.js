@@ -1,6 +1,5 @@
-import React from "react";
-import MUIButton from '@mui/material/Button';
-
+import React from 'react'
+import MUIButton from '@mui/material/Button'
 
 const Button = (props) => {
   return (
@@ -13,9 +12,9 @@ const Button = (props) => {
           md: `${props.width ? props.width : '200px'}`,
         },
         height: {
-          md: '35px',
+          md: '40px',
         },
-        textTransform: 'none'
+        textTransform: 'none',
       }}
       onClick={props.onClick}
     >
@@ -24,4 +23,4 @@ const Button = (props) => {
   )
 }
 
-export default Button;
+export default Button
