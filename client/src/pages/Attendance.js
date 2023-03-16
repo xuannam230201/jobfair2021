@@ -6,7 +6,7 @@ import InfoBox from '../components/InfoBox'
 import { Grid } from '@mui/material'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { BLUE_BG, DARK_BLUE, PINK_BG } from '../utils'
+import { DARK_BLUE } from '../utils'
 
 const Attendance = () => {
   const [buttonIn, setButtonIn] = useState(true)
@@ -33,7 +33,6 @@ const Attendance = () => {
           sx={{
             width: '100%',
           }}
-          xs={12}
         >
           <Grid item>
             <TitleBar

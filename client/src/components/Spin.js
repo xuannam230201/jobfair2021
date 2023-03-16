@@ -41,7 +41,7 @@ const Spin = (props) => {
 
   const { wheelStudent } = useSelector((state) => state)
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   useEffect(() => {
     let list = [...data]

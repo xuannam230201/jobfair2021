@@ -3,14 +3,13 @@ import { Grid } from '@mui/material'
 import { Box } from '@mui/system'
 import { Tab } from '@mui/material'
 import { Tabs } from '@mui/material'
-import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate, Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { NAVIGATOR_TYPES } from '../redux/action/navigator'
 import { WHITE } from '../utils'
 
 const NavigateBar = (props) => {
-  const { navigator } = useSelector((state) => state)
+  // const { navigator } = useSelector((state) => state)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 

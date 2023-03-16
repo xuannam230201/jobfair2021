@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Dialog, Grid, Typography, IconButton, Stack } from '@mui/material'
+import React, { useEffect } from 'react'
+import { Dialog, Grid, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { Fireworks, useFireworks } from 'fireworks-js/dist/react'
 import { BLUE_TEXT, DARK_BLUE, WHITE } from '../utils'
@@ -13,7 +13,7 @@ const style = {
 }
 
 const PrizeModal = (props) => {
-  const { setEnabled, setOptions, enabled, options } = useFireworks({
+  const { options } = useFireworks({
     initialStart: true,
     initialOptions: {
       hue: {
@@ -64,7 +64,7 @@ const PrizeModal = (props) => {
     },
   })
 
-  const { liveStudent } = useSelector((state) => state)
+  // const { liveStudent } = useSelector((state) => state)
 
   useEffect(() => {
     setTimeout(() => {

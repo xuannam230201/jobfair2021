@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Grid, Typography, Avatar, Zoom, Fade, Grow } from '@mui/material'
+import { Grid, Typography, Avatar, Grow } from '@mui/material'
 import Button from './Button'
 import { useSelector, useDispatch } from 'react-redux'
 import Spin from './Spin'
-import { getDataAPI, postDataAPI } from '../utils/fetchData'
-import { STUDENT_TYPES, deleteWheelStudent } from '../redux/action/student'
+import { getDataAPI } from '../utils/fetchData'
+import { deleteWheelStudent } from '../redux/action/student'
 import { BLUE_ISH_BG, WHITE, BLUE_TEXT, DARK_BLUE, PINK_BG } from '../utils'
 
 const prize = [
@@ -30,6 +30,7 @@ const SpinWheel = (props) => {
   const dispatch = useDispatch()
 
   const count = useRef(0)
+  const RANDOM_MAX = 20000
 
   useEffect(() => {
     let arr = [...prizeList]
@@ -37,19 +38,23 @@ const SpinWheel = (props) => {
     setPrizeList(arr)
   }, [student])
 
-  useEffect(async () => {
-    const res = await getDataAPI(`students/prize`)
-    const list = res.data.prizes
-    let resList = ['', '', '', '', '']
-    list.map((item) => {
-      resList[item.prize] =
-        item.student.id +
-        (item.student.surname === '' ? '' : ' - ') +
-        item.student.surname +
-        ' ' +
-        item.student.firstname
-    })
-    setPrizeList(resList)
+  useEffect(() => {
+    const setPrizeAsync = async () => {
+      const res = await getDataAPI(`students/prize`)
+      const list = res.data.prizes
+      let resList = ['', '', '', '', '']
+      list.map(
+        (item) =>
+          (resList[item.prize] =
+            item.student.id +
+            (item.student.surname === '' ? '' : ' - ') +
+            item.student.surname +
+            ' ' +
+            item.student.firstname)
+      )
+      setPrizeList(resList)
+    }
+    setPrizeAsync()
   }, [])
 
   useEffect(() => {
@@ -58,9 +63,12 @@ const SpinWheel = (props) => {
       counter = setInterval(() => {
         const size = wheelStudent.length
         let arr = [...joinList]
-        let value = Math.floor(Math.random() * 100)
-        while (arr.includes(wheelStudent[value % size].id)) {
-          value = Math.floor(Math.random() * 100)
+        let value = Math.floor(Math.random() * RANDOM_MAX)
+        while (
+          arr.includes(wheelStudent[value % size].id) &&
+          wheelStudent[value % size].isOrganizer
+        ) {
+          value = Math.floor(Math.random() * RANDOM_MAX)
         }
         arr[curCount] = wheelStudent[value % size].id
         setJoinList(arr)

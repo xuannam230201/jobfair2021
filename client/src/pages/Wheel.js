@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { Grid, Typography } from '@mui/material'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { Grid } from '@mui/material'
+import { useDispatch } from 'react-redux'
 import TitleBar from '../components/TitleBar'
 import SpinWheel from '../components/SpinWheel'
-import { STUDENT_TYPES, getWheelStudent } from '../redux/action/student'
-import { DARK_BLUE, PINK_BG } from '../utils'
+import { getWheelStudent } from '../redux/action/student'
+import { DARK_BLUE } from '../utils'
 
 const Wheel = () => {
   const dispatch = useDispatch()
