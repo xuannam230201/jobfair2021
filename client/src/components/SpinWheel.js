@@ -8,11 +8,11 @@ import { deleteWheelStudent } from '../redux/action/student'
 import { BLUE_ISH_BG, WHITE, BLUE_TEXT, DARK_BLUE, PINK_BG } from '../utils'
 
 const prize = [
-  { type: 'S', color: BLUE_TEXT },
+  { type: 'S', color: 'RED' },
   { type: '1', color: '#FFB404' },
   { type: '2', color: PINK_BG },
-  { type: '3', color: '#824A02' },
-  { type: '4', color: DARK_BLUE },
+  { type: '3', color: 'GREEN' },
+  { type: '4', color: 'purple' },
 ]
 
 const SpinWheel = (props) => {

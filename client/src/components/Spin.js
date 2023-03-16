@@ -83,7 +83,7 @@ const Spin = (props) => {
       let list = [...data]
       list = list.filter((item) => item.option !== id)
       setData(list)
-    }, 4040)
+    }, 5000)
   }
 
   return (
