@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { STUDENT_TYPES } from '../redux/action/student'
 import { initLiveStudent } from '../redux/action/student'
 import { getDataAPI } from '../utils/fetchData'
-import { DARK_BLUE, isOrganizer, stringName } from '../utils'
+import { BLUE_ISH_BG, DARK_BLUE, isOrganizer, stringName } from '../utils'
 
 const Statistic = (props) => {
   const [curTime, setCurTime] = useState(new Date())
@@ -34,7 +34,7 @@ const Statistic = (props) => {
       justifyContent="flex-start"
       alignItems="stretch"
       sx={{
-        bgcolor: '#ECF2FF',
+        bgcolor: BLUE_ISH_BG,
         width: '1000px',
       }}
       direction="row"

@@ -30,7 +30,7 @@ const backgroundColors = [
   '#FAEDCD',
 ]
 
-const textColors = ['#ffffff']
+const textColors = [DARK_BLUE]
 
 const Spin = (props) => {
   const [mustSpin, setMustSpin] = useState(false)
@@ -107,7 +107,12 @@ const Spin = (props) => {
           />
         </Grid>
         <Grid item>
-          <Button onClick={handleSpinClick} width="100px" content="Quay" />
+          <Button
+            onClick={handleSpinClick}
+            width="100px"
+            content="Quay"
+            bgcolor={PINK_BG}
+          />
         </Grid>
       </Grid>
       <PrizeModal student={student} open={open} setOpen={setOpen} />

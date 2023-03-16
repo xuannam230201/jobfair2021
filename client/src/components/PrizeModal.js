@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Dialog, Grid, Typography, IconButton, Stack } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { Fireworks, useFireworks } from 'fireworks-js/dist/react'
+import { DARK_BLUE } from '../utils'
 
 const style = {
   top: 0,
@@ -68,14 +69,14 @@ const PrizeModal = (props) => {
   useEffect(() => {
     setTimeout(() => {
       props.setOpen(false)
-    }, 4040)
+    }, 8000)
   }, [props.student])
 
   return (
     <>
       {props.open ? (
         <Fireworks options={options} style={style}>
-          <Dialog open={props.open}>
+          <Dialog open={props.open} maxWidth="false">
             <Grid
               container
               rowSpacing={0}
@@ -84,10 +85,10 @@ const PrizeModal = (props) => {
               sx={{
                 bgcolor: '#ffffff',
                 width: {
-                  md: '500px',
+                  md: '1000px',
                 },
                 height: {
-                  md: '200px',
+                  md: '400px',
                 },
               }}
             >
@@ -112,21 +113,19 @@ const PrizeModal = (props) => {
                   CHÚC MỪNG
                 </Typography>
               </Grid>
-              <Grid
-                container
-                justifyContent="center"
-                alignItems="center"
-                sx={{
-                  height: '70px',
-                }}
-              >
+              <Grid container justifyContent="center" alignItems="center">
                 <Typography
                   sx={{
                     fontSize: {
-                      md: '24px',
+                      md: '70px',
                     },
+                    paddingTop: '30px',
+                    color: DARK_BLUE,
+                    fontWeight: 'bold',
+                    textAlign: 'center',
                   }}
                 >
+                  Nguyễn Đoàn Phương Nghi
                   {props.student
                     ? props.student.surname + ' ' + props.student.firstname
                     : ''}
@@ -143,10 +142,12 @@ const PrizeModal = (props) => {
                 <Typography
                   sx={{
                     fontSize: {
-                      md: '24px',
+                      md: '70px',
                     },
+                    fontWeight: 'bold',
                   }}
                 >
+                  {3203029300}
                   {props.student ? props.student.id : ''}
                 </Typography>
               </Grid>

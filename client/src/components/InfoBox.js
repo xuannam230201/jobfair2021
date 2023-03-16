@@ -2,7 +2,13 @@ import React from 'react'
 import { Grid, Fade, Zoom } from '@mui/material'
 import { Typography } from '@mui/material'
 import Warning from './Warning'
-import { BLUE_BG, DARK_BLUE, isOrganizer, stringName } from '../utils'
+import {
+  BLUE_BG,
+  BLUE_ISH_BG,
+  DARK_BLUE,
+  isOrganizer,
+  stringName,
+} from '../utils'
 
 const InfoBox = (props) => {
   return (
@@ -11,7 +17,7 @@ const InfoBox = (props) => {
       alignItems="stretch"
       direction="row"
       sx={{
-        bgcolor: '#F0F0F0',
+        bgcolor: BLUE_ISH_BG,
         width: {
           md: '1000px',
         },

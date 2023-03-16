@@ -15,6 +15,7 @@ import { STUDENT_TYPES, initLiveStudent } from './redux/action/student'
 
 import io from 'socket.io-client'
 import SocketClient from './SocketClient'
+import { BLUE_ISH_BG } from './utils'
 
 function App() {
   const { navigator, socket } = useSelector((state) => state)
@@ -62,7 +63,7 @@ function App() {
           alignItems="center"
           justifyContent="center"
           sx={{
-            bgcolor: '#ECF2FF',
+            bgcolor: BLUE_ISH_BG,
             width: '100%',
           }}
         >

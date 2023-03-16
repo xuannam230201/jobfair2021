@@ -5,13 +5,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import Spin from './Spin'
 import { getDataAPI, postDataAPI } from '../utils/fetchData'
 import { STUDENT_TYPES, deleteWheelStudent } from '../redux/action/student'
+import { BLUE_ISH_BG, DARK_BLUE, PINK_BG } from '../utils'
 
 const prize = [
   { type: 'S', color: '#95BDFF' },
   { type: '1', color: '#FFB404' },
-  { type: '2', color: '#A7A7AD' },
+  { type: '2', color: PINK_BG },
   { type: '3', color: '#824A02' },
-  { type: '4', color: '#9a260c' },
+  { type: '4', color: DARK_BLUE },
 ]
 
 const SpinWheel = (props) => {
@@ -103,7 +104,7 @@ const SpinWheel = (props) => {
       justifyContent="flex-start"
       alignItems="stretch"
       sx={{
-        bgcolor: '#f0f0f0',
+        bgcolor: BLUE_ISH_BG,
         width: '1000px',
       }}
       direction="row"
@@ -159,9 +160,9 @@ const SpinWheel = (props) => {
             >
               <Button
                 content="Bắt đầu"
-                bgColor="#F7C8E0"
+                bgColor={PINK_BG}
                 color="#FFFFFF"
-                width="100px"
+                width="400px"
                 onClick={start}
               />
             </Grid>
@@ -196,6 +197,7 @@ const SpinWheel = (props) => {
                         sm: '16px',
                         md: '16px',
                       },
+                      // paddingLeft: '15px',
                       textAlign: 'center',
                       color: `${
                         key === joinList.length - 1 ? '#95BDFF' : '#000000'
@@ -301,6 +303,7 @@ const SpinWheel = (props) => {
                 height: {
                   md: '60px',
                 },
+                paddingLeft: '20px',
               }}
               key={item}
               padding={1}
@@ -331,6 +334,7 @@ const SpinWheel = (props) => {
                       fontSize: {
                         md: '20px',
                       },
+                      paddingLeft: '15px',
                     }}
                   >
                     {prizeList[item]}
