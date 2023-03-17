@@ -57,6 +57,10 @@ const SpinWheel = (props) => {
     setPrizeAsync()
   }, [])
 
+  function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+
   useEffect(() => {
     let counter
     if (curCount < 10) {
@@ -65,7 +69,7 @@ const SpinWheel = (props) => {
         let arr = [...joinList]
         let value = Math.floor(Math.random() * RANDOM_MAX)
         while (
-          arr.includes(wheelStudent[value % size].id) &&
+          arr.includes(wheelStudent[value % size].id) ||
           wheelStudent[value % size].isOrganizer
         ) {
           value = Math.floor(Math.random() * RANDOM_MAX)
@@ -78,7 +82,8 @@ const SpinWheel = (props) => {
         setCurCount(count.current)
       }, 1000)
     }
-    setList(joinList)
+    
+    sleep(300).then(() => setList(joinList))
     return () => {
       clearInterval(counter)
     }
