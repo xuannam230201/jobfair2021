@@ -144,7 +144,7 @@ const PrizeModal = (props) => {
                       md: '70px',
                     },
                     fontWeight: 'bold',
-                    color: DARK_BLUE,
+                    color: 'black',
                   }}
                 >
                   {props.student ? props.student.id : ''}
