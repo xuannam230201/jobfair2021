@@ -13,12 +13,6 @@ const Wheel = () => {
     dispatch(getWheelStudent())
   }, [])
 
-  const password = localStorage.getItem('password')
-
-  if (password !== 'nh2') {
-    return <></>
-  }
-
   return (
     <Grid
       container
