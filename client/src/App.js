@@ -22,7 +22,8 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const socket = io.connect('http://localhost:8000', {
+    const curUrl = window.location.href
+    const socket = io.connect(`${curUrl.substring(0, curUrl.lastIndexOf(':'))}:8000`, {
       transports: ['websocket', 'polling', 'flashsocket'],
     })
     dispatch({ type: SOCKET_TYPES.SOCKET, payload: socket })
