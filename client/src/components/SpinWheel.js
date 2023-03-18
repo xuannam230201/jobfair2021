@@ -13,6 +13,11 @@ const prize = [
   { type: '2', color: PINK_BG },
   { type: '3', color: 'GREEN' },
   { type: '4', color: 'purple' },
+
+  { type: '5', color: 'RED' },
+  { type: '6', color: '#FFB404' },
+  { type: '7', color: PINK_BG },
+  { type: '8', color: 'GREEN' },
 ]
 
 const SpinWheel = (props) => {
@@ -23,6 +28,8 @@ const SpinWheel = (props) => {
   const [prizeList, setPrizeList] = useState(['', '', '', '', ''])
   const [refresh, setRefresh] = useState(false)
   const [student, setStudent] = useState('')
+  const [buttonType, setButtonType] = useState(true)
+  const [prizeTypeList, setPrizeTypeList] = useState([])
 
   const { socket, wheelStudent } = useSelector((state) => state)
   // const wheelStudent = ['nghi', 'son', 'tan']
@@ -45,19 +52,19 @@ const SpinWheel = (props) => {
       let resList = ['', '', '', '', '']
       list.map(
         (item) =>
-          (resList[item.prize] =
-            item.student.id +
-            (item.student.surname === '' ? '' : ' - ') +
-            item.student.surname +
-            ' ' +
-            item.student.firstname)
+        (resList[item.prize] =
+          item.student.id +
+          (item.student.surname === '' ? '' : ' - ') +
+          item.student.surname +
+          ' ' +
+          item.student.firstname)
       )
       setPrizeList(resList)
     }
     setPrizeAsync()
   }, [])
 
-  function sleep (time) {
+  function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
   }
 
@@ -82,7 +89,7 @@ const SpinWheel = (props) => {
         setCurCount(count.current)
       }, 1000)
     }
-    
+
     sleep(300).then(() => setList(joinList))
     return () => {
       clearInterval(counter)
@@ -110,6 +117,10 @@ const SpinWheel = (props) => {
 
   const choosePrize = (item) => {
     setCurPrize(item)
+  }
+
+  const changeButtonType = () => {
+    setButtonType(!buttonType)
   }
 
   return (
@@ -213,9 +224,8 @@ const SpinWheel = (props) => {
                       },
                       // paddingLeft: '15px',
                       textAlign: 'center',
-                      color: `${
-                        key === joinList.length - 1 ? BLUE_TEXT : '#000000'
-                      }`,
+                      color: `${key === joinList.length - 1 ? BLUE_TEXT : '#000000'
+                        }`,
                     }}
                   >
                     {item}
@@ -245,9 +255,8 @@ const SpinWheel = (props) => {
                         md: '16px',
                       },
                       textAlign: 'center',
-                      color: `${
-                        key === joinList.length - 5 ? BLUE_TEXT : '#000000'
-                      }`,
+                      color: `${key === joinList.length - 5 ? BLUE_TEXT : '#000000'
+                        }`,
                     }}
                   >
                     {item}
@@ -277,9 +286,8 @@ const SpinWheel = (props) => {
                         md: '16px',
                       },
                       textAlign: 'center',
-                      color: `${
-                        key === joinList.length - 9 ? BLUE_TEXT : '#000000'
-                      }`,
+                      color: `${key === joinList.length - 9 ? BLUE_TEXT : '#000000'
+                        }`,
                     }}
                   >
                     {item}
@@ -307,8 +315,30 @@ const SpinWheel = (props) => {
             >
               GIẢI THƯỞNG
             </Typography>
+            <Grid
+              container
+              item
+              justifyContent="center"
+              alignItems="center"
+              md={6}
+              xs={6}
+            >
+              <Button
+                bgColor={`${buttonType ? '#F7C8E0' : DARK_BLUE}`}
+                color="#FFFFFF"
+                content={buttonType ? 'CSE' : 'KMS'}
+                onClick={() => changeButtonType()}
+              />
+            </Grid>
           </Grid>
-          {[0, 1, 2, 3, 4].map((item) => (
+
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((item) => {
+            if (buttonType) {
+              if (item >= 5) {
+                return <></>
+              }
+
+            return (
             <Grid
               container
               item
@@ -332,13 +362,12 @@ const SpinWheel = (props) => {
                       md: '30px',
                     },
                     fontSize: '20px',
-                    bgcolor: `${
-                      curPrize === item ? prize[item].color : '#000000'
-                    }`,
+                    bgcolor: `${curPrize === item ? prize[item].color : '#000000'
+                      }`,
                   }}
                   onClick={() => choosePrize(item)}
                 >
-                  {prize[item].type}
+                  {(parseInt((prize[item].type)) >= 5 ? parseInt((prize[item].type)) - 4 : prize[item].type)}
                 </Avatar>
               </Grid>
               <Grid item md={11}>
@@ -355,8 +384,64 @@ const SpinWheel = (props) => {
                   </Typography>
                 </Grow>
               </Grid>
-            </Grid>
-          ))}
+            </Grid>)
+            }
+
+
+            else {
+              if (item < 5) {
+                return <></>
+              }
+
+            return (
+            <Grid
+              container
+              item
+              sx={{
+                bgcolor: WHITE,
+                height: {
+                  md: '60px',
+                },
+                paddingLeft: '20px',
+              }}
+              key={item}
+              padding={1}
+            >
+              <Grid item md={1} justifyContent="center">
+                <Avatar
+                  sx={{
+                    width: {
+                      md: '30px',
+                    },
+                    height: {
+                      md: '30px',
+                    },
+                    fontSize: '20px',
+                    bgcolor: `${curPrize === item ? prize[item].color : '#000000'
+                      }`,
+                  }}
+                  onClick={() => choosePrize(item)}
+                >
+                  {(parseInt((prize[item].type)) >= 5 ? parseInt((prize[item].type)) - 4 : prize[item].type)}
+                </Avatar>
+              </Grid>
+              <Grid item md={11}>
+                <Grow in={true} timeout={1000}>
+                  <Typography
+                    sx={{
+                      fontSize: {
+                        md: '20px',
+                      },
+                      paddingLeft: '15px',
+                    }}
+                  >
+                    {prizeList[item]}
+                  </Typography>
+                </Grow>
+              </Grid>
+            </Grid>)
+            }
+          })}
         </Grid>
       </Grid>
       <Grid container item md={0.2}></Grid>
